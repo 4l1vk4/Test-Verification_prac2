@@ -1,6 +1,10 @@
-from typing import Dict
+from typing import Dict, Union
 
 def calculate_compound_interest(principal: float, rate: float, years: int, compounds_per_year: int = 1) -> float:
+    """
+    Расчет итоговой суммы при сложных процентах:
+    A = P * (1 + r / n) ** (n * t)
+    """
     if principal < 0:
         raise ValueError("Начальный капитал не может быть отрицательным.")
     if rate < 0:
@@ -15,6 +19,9 @@ def calculate_compound_interest(principal: float, rate: float, years: int, compo
 
 
 def calculate_loan_payment(principal: float, annual_rate: float, months: int) -> float:
+    """
+    Расчет ежемесячного аннуитетного платежа по кредиту.
+    """
     if principal <= 0:
         raise ValueError("Сумма кредита должна быть строго больше нуля.")
     if annual_rate < 0:
@@ -31,6 +38,9 @@ def calculate_loan_payment(principal: float, annual_rate: float, months: int) ->
 
 
 def deposit_funds(balance: float, amount: float, bonus_rate: float = 0.0) -> float:
+    """
+    Пополнение баланса счета с возможным начислением бонуса.
+    """
     if balance < 0:
         raise ValueError("Текущий баланс не может быть отрицательным.")
     if amount <= 0:
@@ -44,6 +54,9 @@ def deposit_funds(balance: float, amount: float, bonus_rate: float = 0.0) -> flo
 
 
 def withdraw_funds(balance: float, amount: float, fee: float = 0.0) -> float:
+    """
+    Снятие средств со счета с учетом комиссии.
+    """
     if balance < 0:
         raise ValueError("Баланс счета не может быть отрицательным.")
     if amount <= 0:
@@ -51,14 +64,18 @@ def withdraw_funds(balance: float, amount: float, fee: float = 0.0) -> float:
     if fee < 0:
         raise ValueError("Комиссия не может быть отрицательной.")
     
-    if balance < amount:
+    total_deduction = amount + fee
+    if balance < total_deduction:
         raise ValueError("Недостаточно средств на счете для совершения операции с учетом комиссии.")
     
-    new_balance = balance - amount + fee
+    new_balance = balance - total_deduction
     return round(new_balance, 2)
 
 
 def convert_currency(amount: float, from_curr: str, to_curr: str, rates: Dict[str, float]) -> float:
+    """
+    Конвертация валюты по заданному словарю обменных курсов относительно базовой валюты.
+    """
     if amount < 0:
         raise ValueError("Сумма для конвертации не может быть отрицательной.")
     if from_curr not in rates:
@@ -68,6 +85,7 @@ def convert_currency(amount: float, from_curr: str, to_curr: str, rates: Dict[st
     if rates[from_curr] <= 0 or rates[to_curr] <= 0:
         raise ValueError("Курс валюты должен быть строго положительным.")
     
+    # Перевод через базовую валюту
     base_val = amount / rates[from_curr]
     converted = base_val * rates[to_curr]
     return round(converted, 2)
