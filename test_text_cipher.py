@@ -1,10 +1,11 @@
 import unittest
-import text_cipher
 
 
 class TestTextCipher(unittest.TestCase):
 
     def setUp(self):
+        import text_cipher
+
         self.mod = text_cipher
 
     # --- 1. caesar_cipher ---

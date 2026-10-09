@@ -1,0 +1,428 @@
+{
+  "coverage": {
+    "bank_account": {
+      "module": "bank_account",
+      "total_lines": 63,
+      "covered_lines": 56,
+      "missing_lines": [
+        4,
+        22,
+        41,
+        57,
+        61,
+        76,
+        84
+      ],
+      "coverage_percent": 88.89
+    },
+    "text_cipher": {
+      "module": "text_cipher",
+      "total_lines": 106,
+      "covered_lines": 106,
+      "missing_lines": [],
+      "coverage_percent": 100.0
+    },
+    "matrix_ops": {
+      "module": "matrix_ops",
+      "total_lines": 77,
+      "covered_lines": 72,
+      "missing_lines": [
+        25,
+        35,
+        47,
+        50,
+        75
+      ],
+      "coverage_percent": 93.51
+    }
+  },
+  "mutation_round_1": {
+    "bank_account": {
+      "module": "bank_account",
+      "total": 15,
+      "killed": 12,
+      "survived": 3,
+      "mutation_score": 80.0,
+      "mutants": [
+        {
+          "id": "MUT-01",
+          "description": "CRP: Замена 1 на 0",
+          "type": "CRP",
+          "line": 3,
+          "status": "SURVIVED",
+          "reason": "Тесты не зафиксировали аномалию"
+        },
+        {
+          "id": "MUT-02",
+          "description": "ROR: Замена Lt на Gt",
+          "type": "ROR",
+          "line": 8,
+          "status": "KILLED",
+          "reason": "AssertFail: test_compound_interest_invalid_params"
+        },
+        {
+          "id": "MUT-03",
+          "description": "ROR: Замена Lt на LtE",
+          "type": "ROR",
+          "line": 8,
+          "status": "SURVIVED",
+          "reason": "Тесты не зафиксировали аномалию"
+        },
+        {
+          "id": "MUT-04",
+          "description": "ROR: Замена Lt на Gt",
+          "type": "ROR",
+          "line": 10,
+          "status": "KILLED",
+          "reason": "AssertFail: test_compound_interest_invalid_params"
+        },
+        {
+          "id": "MUT-05",
+          "description": "ROR: Замена Lt на LtE",
+          "type": "ROR",
+          "line": 10,
+          "status": "KILLED",
+          "reason": "Error: test_compound_interest_zero_rate"
+        },
+        {
+          "id": "MUT-06",
+          "description": "ROR: Замена Lt на Gt",
+          "type": "ROR",
+          "line": 12,
+          "status": "KILLED",
+          "reason": "AssertFail: test_compound_interest_invalid_params"
+        },
+        {
+          "id": "MUT-07",
+          "description": "ROR: Замена Lt на LtE",
+          "type": "ROR",
+          "line": 12,
+          "status": "SURVIVED",
+          "reason": "Тесты не зафиксировали аномалию"
+        },
+        {
+          "id": "MUT-08",
+          "description": "ROR: Замена LtE на Gt",
+          "type": "ROR",
+          "line": 14,
+          "status": "KILLED",
+          "reason": "Error: test_compound_interest_basic"
+        },
+        {
+          "id": "MUT-09",
+          "description": "ROR: Замена LtE на Lt",
+          "type": "ROR",
+          "line": 14,
+          "status": "KILLED",
+          "reason": "Error: test_compound_interest_invalid_params"
+        },
+        {
+          "id": "MUT-10",
+          "description": "AOR: Замена '*' на '/'",
+          "type": "AOR",
+          "line": 17,
+          "status": "KILLED",
+          "reason": "AssertFail: test_compound_interest_basic"
+        },
+        {
+          "id": "MUT-11",
+          "description": "ROR: Замена LtE на Gt",
+          "type": "ROR",
+          "line": 25,
+          "status": "KILLED",
+          "reason": "AssertFail: test_loan_payment_invalid_inputs"
+        },
+        {
+          "id": "MUT-12",
+          "description": "ROR: Замена LtE на Lt",
+          "type": "ROR",
+          "line": 25,
+          "status": "KILLED",
+          "reason": "AssertFail: test_loan_payment_invalid_inputs"
+        },
+        {
+          "id": "MUT-13",
+          "description": "ROR: Замена Lt на Gt",
+          "type": "ROR",
+          "line": 27,
+          "status": "KILLED",
+          "reason": "AssertFail: test_loan_payment_invalid_inputs"
+        },
+        {
+          "id": "MUT-14",
+          "description": "ROR: Замена Lt на LtE",
+          "type": "ROR",
+          "line": 27,
+          "status": "KILLED",
+          "reason": "Error: test_loan_payment_zero_interest"
+        },
+        {
+          "id": "MUT-15",
+          "description": "ROR: Замена LtE на Gt",
+          "type": "ROR",
+          "line": 29,
+          "status": "KILLED",
+          "reason": "Error: test_loan_payment_invalid_inputs"
+        }
+      ]
+    },
+    "text_cipher": {
+      "module": "text_cipher",
+      "total": 15,
+      "killed": 11,
+      "survived": 4,
+      "mutation_score": 73.33,
+      "mutants": [
+        {
+          "id": "MUT-01",
+          "description": "CRP: Замена булевой константы False на True",
+          "type": "CRP",
+          "line": 3,
+          "status": "SURVIVED",
+          "reason": "Тесты не зафиксировали аномалию"
+        },
+        {
+          "id": "MUT-02",
+          "description": "ROR: Замена Eq на NotEq",
+          "type": "ROR",
+          "line": 39,
+          "status": "KILLED",
+          "reason": "Error: test_xor_empty_key"
+        },
+        {
+          "id": "MUT-03",
+          "description": "CRP: Замена булевой константы False на True",
+          "type": "CRP",
+          "line": 50,
+          "status": "SURVIVED",
+          "reason": "Тесты не зафиксировали аномалию"
+        },
+        {
+          "id": "MUT-04",
+          "description": "CRP: Замена 0 на 1",
+          "type": "CRP",
+          "line": 59,
+          "status": "KILLED",
+          "reason": "AssertFail: test_vigenere_decrypt"
+        },
+        {
+          "id": "MUT-05",
+          "description": "CRP: Замена булевой константы False на True",
+          "type": "CRP",
+          "line": 74,
+          "status": "SURVIVED",
+          "reason": "Тесты не зафиксировали аномалию"
+        },
+        {
+          "id": "MUT-06",
+          "description": "ROR: Замена LtE на Gt",
+          "type": "ROR",
+          "line": 79,
+          "status": "KILLED",
+          "reason": "Error: test_rail_fence_boundary_and_exceptions"
+        },
+        {
+          "id": "MUT-07",
+          "description": "ROR: Замена LtE на Lt",
+          "type": "ROR",
+          "line": 79,
+          "status": "KILLED",
+          "reason": "Error: test_rail_fence_boundary_and_exceptions"
+        },
+        {
+          "id": "MUT-08",
+          "description": "ROR: Замена LtE на Gt",
+          "type": "ROR",
+          "line": 12,
+          "status": "KILLED",
+          "reason": "AssertFail: test_caesar_decrypt_standard"
+        },
+        {
+          "id": "MUT-09",
+          "description": "ROR: Замена LtE на Lt",
+          "type": "ROR",
+          "line": 12,
+          "status": "KILLED",
+          "reason": "AssertFail: test_caesar_large_shift"
+        },
+        {
+          "id": "MUT-10",
+          "description": "ROR: Замена LtE на Gt",
+          "type": "ROR",
+          "line": 12,
+          "status": "KILLED",
+          "reason": "AssertFail: test_caesar_decrypt_standard"
+        },
+        {
+          "id": "MUT-11",
+          "description": "ROR: Замена LtE на Lt",
+          "type": "ROR",
+          "line": 12,
+          "status": "SURVIVED",
+          "reason": "Тесты не зафиксировали аномалию"
+        },
+        {
+          "id": "MUT-12",
+          "description": "ROR: Замена LtE на Gt",
+          "type": "ROR",
+          "line": 27,
+          "status": "KILLED",
+          "reason": "AssertFail: test_atbash_basic"
+        },
+        {
+          "id": "MUT-13",
+          "description": "ROR: Замена LtE на Lt",
+          "type": "ROR",
+          "line": 27,
+          "status": "KILLED",
+          "reason": "AssertFail: test_atbash_symmetry"
+        },
+        {
+          "id": "MUT-14",
+          "description": "ROR: Замена LtE на Gt",
+          "type": "ROR",
+          "line": 27,
+          "status": "KILLED",
+          "reason": "AssertFail: test_atbash_basic"
+        },
+        {
+          "id": "MUT-15",
+          "description": "ROR: Замена LtE на Lt",
+          "type": "ROR",
+          "line": 27,
+          "status": "KILLED",
+          "reason": "AssertFail: test_atbash_basic"
+        }
+      ]
+    },
+    "matrix_ops": {
+      "module": "matrix_ops",
+      "total": 15,
+      "killed": 15,
+      "survived": 0,
+      "mutation_score": 100.0,
+      "mutants": [
+        {
+          "id": "MUT-01",
+          "description": "ROR: Замена NotEq на Eq",
+          "type": "ROR",
+          "line": 40,
+          "status": "KILLED",
+          "reason": "Error: test_multiplication_incompatible_dimensions"
+        },
+        {
+          "id": "MUT-02",
+          "description": "ROR: Замена Eq на NotEq",
+          "type": "ROR",
+          "line": 84,
+          "status": "KILLED",
+          "reason": "AssertFail: test_determinant_3x3"
+        },
+        {
+          "id": "MUT-03",
+          "description": "ROR: Замена Eq на NotEq",
+          "type": "ROR",
+          "line": 86,
+          "status": "KILLED",
+          "reason": "AssertFail: test_determinant_3x3"
+        },
+        {
+          "id": "MUT-04",
+          "description": "CRP: Замена 0 на 1",
+          "type": "CRP",
+          "line": 89,
+          "status": "KILLED",
+          "reason": "AssertFail: test_determinant_3x3"
+        },
+        {
+          "id": "MUT-05",
+          "description": "ROR: Замена NotEq на Eq",
+          "type": "ROR",
+          "line": 103,
+          "status": "KILLED",
+          "reason": "AssertFail: test_dot_product_mismatch_or_empty"
+        },
+        {
+          "id": "MUT-06",
+          "description": "ROR: Замена NotEq на Eq",
+          "type": "ROR",
+          "line": 15,
+          "status": "KILLED",
+          "reason": "Error: test_addition_valid"
+        },
+        {
+          "id": "MUT-07",
+          "description": "ROR: Замена NotEq на Eq",
+          "type": "ROR",
+          "line": 15,
+          "status": "KILLED",
+          "reason": "AssertFail: test_addition_dimension_mismatch"
+        },
+        {
+          "id": "MUT-08",
+          "description": "ROR: Замена NotEq на Eq",
+          "type": "ROR",
+          "line": 21,
+          "status": "KILLED",
+          "reason": "Error: test_addition_valid"
+        },
+        {
+          "id": "MUT-09",
+          "description": "ROR: Замена NotEq на Eq",
+          "type": "ROR",
+          "line": 24,
+          "status": "KILLED",
+          "reason": "Error: test_addition_valid"
+        },
+        {
+          "id": "MUT-10",
+          "description": "ROR: Замена NotEq на Eq",
+          "type": "ROR",
+          "line": 46,
+          "status": "KILLED",
+          "reason": "Error: test_multiplication_valid"
+        },
+        {
+          "id": "MUT-11",
+          "description": "ROR: Замена NotEq на Eq",
+          "type": "ROR",
+          "line": 49,
+          "status": "KILLED",
+          "reason": "Error: test_multiplication_valid"
+        },
+        {
+          "id": "MUT-12",
+          "description": "ROR: Замена NotEq на Eq",
+          "type": "ROR",
+          "line": 67,
+          "status": "KILLED",
+          "reason": "Error: test_transpose_rectangular"
+        },
+        {
+          "id": "MUT-13",
+          "description": "ROR: Замена NotEq на Eq",
+          "type": "ROR",
+          "line": 79,
+          "status": "KILLED",
+          "reason": "AssertFail: test_determinant_non_square"
+        },
+        {
+          "id": "MUT-14",
+          "description": "CRP: Замена 1 на 0",
+          "type": "CRP",
+          "line": 84,
+          "status": "KILLED",
+          "reason": "Error: test_determinant_1x1_and_2x2"
+        },
+        {
+          "id": "MUT-15",
+          "description": "AOR: Замена '*' на '/'",
+          "type": "AOR",
+          "line": 93,
+          "status": "KILLED",
+          "reason": "AssertFail: test_determinant_3x3"
+        }
+      ]
+    }
+  }
+}

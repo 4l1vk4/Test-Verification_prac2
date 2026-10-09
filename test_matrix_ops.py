@@ -1,14 +1,16 @@
-import unittest
-import sys
 import os
+import sys
+import unittest
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+
 
 class TestMatrixOps(unittest.TestCase):
 
     def setUp(self):
-        import matrix_ops_bugs
-        self.mod = matrix_ops_bugs
+        import matrix_ops
+
+        self.mod = matrix_ops
 
     # --- 1. matrix_addition ---
     def test_addition_valid(self):
@@ -93,5 +95,6 @@ class TestMatrixOps(unittest.TestCase):
         with self.assertRaises(TypeError):
             self.mod.vector_dot_product("123", [1, 2, 3])
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
