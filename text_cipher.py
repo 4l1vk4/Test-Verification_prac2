@@ -6,7 +6,7 @@ def caesar_cipher(text: str, shift: int, decrypt: bool = False) -> str:
     if not isinstance(shift, int):
         raise TypeError("Сдвиг должен быть целым числом.")
     
-    effective_shift = shift % 26
+    effective_shift = (-shift) % 26 if decrypt else shift % 26
     res: List[str] = []
     for char in text:
         if 'a' <= char <= 'z':

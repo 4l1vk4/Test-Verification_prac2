@@ -89,7 +89,7 @@ def matrix_determinant(a: Matrix) -> float:
     det = 0.0
     for j in range(n):
         sub_matrix = [row[:j] + row[j + 1 :] for row in a[1:]]
-        sign = 1.0
+        sign = (-1.0) ** j
         det += sign * a[0][j] * matrix_determinant(sub_matrix)
 
     return round(det, 4)
