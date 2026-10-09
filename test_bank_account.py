@@ -1,6 +1,10 @@
 import unittest
 import sys
 import os
+
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+
+
 class TestBankAccount(unittest.TestCase):
 
     def setUp(self):
@@ -28,6 +32,20 @@ class TestBankAccount(unittest.TestCase):
         res = self.mod.calculate_compound_interest(1000.0, 0.0, 5, 1)
         self.assertEqual(res, 1000.0)
 
+    def test_compound_interest_default_compounds(self):
+        res_default = self.mod.calculate_compound_interest(1000.0, 0.05, 2)
+        res_explicit = self.mod.calculate_compound_interest(1000.0, 0.05, 2, 1)
+        self.assertEqual(res_default, res_explicit)
+        self.assertEqual(res_default, 1102.50)
+
+    def test_compound_interest_boundary_zero_principal(self):
+        res = self.mod.calculate_compound_interest(0.0, 0.05, 2, 1)
+        self.assertEqual(res, 0.0)
+
+    def test_compound_interest_boundary_zero_years(self):
+        res = self.mod.calculate_compound_interest(1000.0, 0.05, 0, 1)
+        self.assertEqual(res, 1000.0)
+
     def test_compound_interest_invalid_params(self):
         with self.assertRaises(ValueError):
             self.mod.calculate_compound_interest(-100.0, 0.05, 2, 1)
@@ -48,6 +66,10 @@ class TestBankAccount(unittest.TestCase):
         # Беспроцентная рассрочка 120000 на 12 месяцев: 10000 в месяц
         pmt = self.mod.calculate_loan_payment(120000.0, 0.0, 12)
         self.assertEqual(pmt, 10000.0)
+
+    def test_loan_payment_boundary_interest(self):
+        pmt = self.mod.calculate_loan_payment(10000.0, 0.0, 10)
+        self.assertEqual(pmt, 1000.0)
 
     def test_loan_payment_invalid_inputs(self):
         with self.assertRaises(ValueError):
@@ -74,6 +96,8 @@ class TestBankAccount(unittest.TestCase):
             self.mod.deposit_funds(100.0, 0.0, 0.0)
         with self.assertRaises(ValueError):
             self.mod.deposit_funds(100.0, 50.0, 1.5)
+        with self.assertRaises(ValueError):
+            self.mod.deposit_funds(100.0, 50.0, -0.1)
 
     # --- 4. withdraw_funds ---
     def test_withdraw_standard(self):
@@ -101,6 +125,10 @@ class TestBankAccount(unittest.TestCase):
             self.mod.withdraw_funds(100.0, -20.0, 0.0)
         with self.assertRaises(ValueError):
             self.mod.withdraw_funds(100.0, 20.0, -5.0)
+        with self.assertRaises(ValueError):
+            self.mod.withdraw_funds(100.0, 0.0, 0.0)
+        with self.assertRaises(ValueError):
+            self.mod.withdraw_funds(-10.0, 5.0, 0.0)
 
     # --- 5. convert_currency ---
     def test_convert_same_currency(self):
@@ -114,6 +142,8 @@ class TestBankAccount(unittest.TestCase):
     def test_convert_unknown_currency(self):
         with self.assertRaises(KeyError):
             self.mod.convert_currency(100.0, "GBP", "USD", self.rates)
+        with self.assertRaises(KeyError):
+            self.mod.convert_currency(100.0, "USD", "GBP", self.rates)
 
     def test_convert_invalid_amount_or_rates(self):
         with self.assertRaises(ValueError):
@@ -121,6 +151,22 @@ class TestBankAccount(unittest.TestCase):
         bad_rates = {"USD": 1.0, "RUB": -10.0}
         with self.assertRaises(ValueError):
             self.mod.convert_currency(100.0, "USD", "RUB", bad_rates)
+        bad_rates_src = {"USD": -1.0, "EUR": 1.0}
+        with self.assertRaises(ValueError):
+            self.mod.convert_currency(100.0, "USD", "EUR", bad_rates_src)
+
+    # --- 6. additional_coverage_branches (from improved suite) ---
+    def test_additional_coverage_branches(self):
+        with self.assertRaises(ValueError):
+            self.mod.deposit_funds(100.0, 50.0, -0.1)
+        with self.assertRaises(ValueError):
+            self.mod.withdraw_funds(100.0, 0.0, 0.0)
+        with self.assertRaises(ValueError):
+            self.mod.withdraw_funds(-10.0, 5.0, 0.0)
+        bad_rates = {"USD": -1.0, "EUR": 1.0}
+        with self.assertRaises(ValueError):
+            self.mod.convert_currency(100.0, "USD", "EUR", bad_rates)
+
 
 if __name__ == '__main__':
     unittest.main()

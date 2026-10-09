@@ -3,17 +3,15 @@
     "bank_account": {
       "module": "bank_account",
       "total_lines": 63,
-      "covered_lines": 56,
+      "covered_lines": 58,
       "missing_lines": [
         4,
         22,
         41,
         57,
-        61,
-        76,
-        84
+        76
       ],
-      "coverage_percent": 88.89
+      "coverage_percent": 92.06
     },
     "text_cipher": {
       "module": "text_cipher",
@@ -40,17 +38,17 @@
     "bank_account": {
       "module": "bank_account",
       "total": 15,
-      "killed": 12,
-      "survived": 3,
-      "mutation_score": 80.0,
+      "killed": 15,
+      "survived": 0,
+      "mutation_score": 100.0,
       "mutants": [
         {
           "id": "MUT-01",
           "description": "CRP: Замена 1 на 0",
           "type": "CRP",
           "line": 3,
-          "status": "SURVIVED",
-          "reason": "Тесты не зафиксировали аномалию"
+          "status": "KILLED",
+          "reason": "Error: test_compound_interest_default_compounds"
         },
         {
           "id": "MUT-02",
@@ -65,8 +63,8 @@
           "description": "ROR: Замена Lt на LtE",
           "type": "ROR",
           "line": 8,
-          "status": "SURVIVED",
-          "reason": "Тесты не зафиксировали аномалию"
+          "status": "KILLED",
+          "reason": "Error: test_compound_interest_boundary_zero_principal"
         },
         {
           "id": "MUT-04",
@@ -97,8 +95,8 @@
           "description": "ROR: Замена Lt на LtE",
           "type": "ROR",
           "line": 12,
-          "status": "SURVIVED",
-          "reason": "Тесты не зафиксировали аномалию"
+          "status": "KILLED",
+          "reason": "Error: test_compound_interest_boundary_zero_years"
         },
         {
           "id": "MUT-08",
@@ -154,7 +152,7 @@
           "type": "ROR",
           "line": 27,
           "status": "KILLED",
-          "reason": "Error: test_loan_payment_zero_interest"
+          "reason": "Error: test_loan_payment_boundary_interest"
         },
         {
           "id": "MUT-15",
@@ -162,7 +160,7 @@
           "type": "ROR",
           "line": 29,
           "status": "KILLED",
-          "reason": "Error: test_loan_payment_invalid_inputs"
+          "reason": "Error: test_loan_payment_boundary_interest"
         }
       ]
     },
