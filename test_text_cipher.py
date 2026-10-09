@@ -110,6 +110,31 @@ class TestTextCipher(unittest.TestCase):
             self.mod.rail_fence_cipher(1234, 3)
         with self.assertRaises(TypeError):
             self.mod.rail_fence_cipher("test", "3")
+    # 1. Проверка дефолтного decrypt=False для Цезаря
+
+
+    def test_caesar_default_decrypt_param(self):
+        self.assertEqual(self.mod.caesar_cipher("abc", 3), "def")
+
+
+    # 2. Проверка граничной буквы 'z'
+    def test_caesar_edge_char_z_lower(self):
+        self.assertEqual(self.mod.caesar_cipher("z", 1), "a")
+
+
+    # 3. Проверка граничной заглавной буквы 'Z'
+    def test_caesar_edge_char_z_upper(self):
+        self.assertEqual(self.mod.caesar_cipher("Z", 1), "A")
+
+
+    # 4. Проверка дефолтного decrypt=False для Виженера
+    def test_vigenere_default_decrypt_param(self):
+        self.assertEqual(self.mod.vigenere_cipher("ATTACK", "LEMON"), "LXFOPV")
+
+
+    # 5. Проверка дефолтного decrypt=False для Рельсового забора
+    def test_rail_fence_default_decrypt_param(self):
+        self.assertEqual(self.mod.rail_fence_cipher("DEFEND", 3), "DNFEED")
 
 
 if __name__ == "__main__":

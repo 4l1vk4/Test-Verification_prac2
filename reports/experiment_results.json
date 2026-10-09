@@ -169,17 +169,17 @@
     "text_cipher": {
       "module": "text_cipher",
       "total": 15,
-      "killed": 11,
-      "survived": 4,
-      "mutation_score": 73.33,
+      "killed": 15,
+      "survived": 0,
+      "mutation_score": 100.0,
       "mutants": [
         {
           "id": "MUT-01",
           "description": "CRP: Замена булевой константы False на True",
           "type": "CRP",
           "line": 3,
-          "status": "SURVIVED",
-          "reason": "Тесты не зафиксировали аномалию"
+          "status": "KILLED",
+          "reason": "AssertFail: test_caesar_default_decrypt_param"
         },
         {
           "id": "MUT-02",
@@ -187,15 +187,15 @@
           "type": "ROR",
           "line": 39,
           "status": "KILLED",
-          "reason": "Error: test_xor_empty_key"
+          "reason": "AssertFail: test_rail_fence_default_decrypt_param"
         },
         {
           "id": "MUT-03",
           "description": "CRP: Замена булевой константы False на True",
           "type": "CRP",
           "line": 50,
-          "status": "SURVIVED",
-          "reason": "Тесты не зафиксировали аномалию"
+          "status": "KILLED",
+          "reason": "AssertFail: test_rail_fence_default_decrypt_param"
         },
         {
           "id": "MUT-04",
@@ -203,15 +203,15 @@
           "type": "CRP",
           "line": 59,
           "status": "KILLED",
-          "reason": "AssertFail: test_vigenere_decrypt"
+          "reason": "AssertFail: test_rail_fence_default_decrypt_param"
         },
         {
           "id": "MUT-05",
           "description": "CRP: Замена булевой константы False на True",
           "type": "CRP",
           "line": 74,
-          "status": "SURVIVED",
-          "reason": "Тесты не зафиксировали аномалию"
+          "status": "KILLED",
+          "reason": "AssertFail: test_rail_fence_default_decrypt_param"
         },
         {
           "id": "MUT-06",
@@ -227,7 +227,7 @@
           "type": "ROR",
           "line": 79,
           "status": "KILLED",
-          "reason": "Error: test_rail_fence_boundary_and_exceptions"
+          "reason": "AssertFail: test_rail_fence_default_decrypt_param"
         },
         {
           "id": "MUT-08",
@@ -243,7 +243,7 @@
           "type": "ROR",
           "line": 12,
           "status": "KILLED",
-          "reason": "AssertFail: test_caesar_large_shift"
+          "reason": "AssertFail: test_caesar_default_decrypt_param"
         },
         {
           "id": "MUT-10",
@@ -258,8 +258,8 @@
           "description": "ROR: Замена LtE на Lt",
           "type": "ROR",
           "line": 12,
-          "status": "SURVIVED",
-          "reason": "Тесты не зафиксировали аномалию"
+          "status": "KILLED",
+          "reason": "AssertFail: test_caesar_edge_char_z_lower"
         },
         {
           "id": "MUT-12",
