@@ -4,8 +4,8 @@ import os
 class TestBankAccount(unittest.TestCase):
 
     def setUp(self):
-        import bank_account_bugs
-        self.mod = bank_account_bugs
+        import bank_account
+        self.mod = bank_account
         self.rates = {
             "USD": 1.0,
             "EUR": 0.92,
