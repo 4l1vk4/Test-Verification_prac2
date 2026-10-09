@@ -1,5 +1,5 @@
 import unittest
-import text_cipher_bugs as text_cipher
+import text_cipher
 
 
 class TestTextCipher(unittest.TestCase):
